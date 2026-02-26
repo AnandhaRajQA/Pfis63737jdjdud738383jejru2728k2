@@ -125,7 +125,50 @@
       transition: all 0.2s;
       white-space: nowrap;
     }
+/* Update the existing nav-tabs class */
+.nav-tabs {
+  display: flex;
+  gap: 2px;
+  background: var(--bg3);
+  padding: 4px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  /* Ensures it can scroll horizontally if tabs exceed width */
+  overflow-x: auto; 
+  scrollbar-width: none; /* Hides scrollbar for Firefox */
+  -webkit-overflow-scrolling: touch;
+}
 
+.nav-tabs::-webkit-scrollbar {
+  display: none; /* Hides scrollbar for Chrome/Safari */
+}
+
+/* Add this Media Query for Mobile Optimization */
+@media (max-width: 600px) {
+  nav {
+    height: auto;
+    padding: 10px;
+    flex-direction: column; /* Stacks Logo and Menu */
+    gap: 8px;
+  }
+
+  .nav-tabs-container {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-tabs {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 2px;
+  }
+
+  .nav-tab {
+    padding: 8px 12px;
+    font-size: 12px; /* Slightly smaller text for mobile */
+  }
+}
+    
     .nav-tab.active {
       background: var(--accent);
       color: white;
